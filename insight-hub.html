@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insight Hub</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .content-section {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f4f4f4;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    <script>
+        function changeLanguage(lang) {
+            const translations = {
+                en: {
+                    title: "Insight Hub",
+                    slogan: "Every Bite Counts",
+                    insightHub: "Insight Hub",
+                    liveFeed: "Live Feed",
+                    impactScore: "Impact Score",
+                    foodSaved: "Food Saved",
+                    footer: "&copy; 2025 Green Bite. All rights reserved."
+                },
+                bn: {
+                    title: "ইনসাইট হাব",
+                    slogan: "প্রত্যেকটি খাবার মূল্যবান",
+                    insightHub: "ইনসাইট হাব",
+                    liveFeed: "লাইভ ফিড",
+                    impactScore: "ইমপ্যাক্ট স্কোর",
+                    foodSaved: "সংরক্ষিত খাবার",
+                    footer: "&copy; ২০২৫ গ্রীন বাইট। সর্বস্বত্ব সংরক্ষিত।"
+                }
+            };
+
+            document.querySelector('title').innerText = translations[lang].title;
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                element.innerText = translations[lang][key];
+            });
+        }
+    </script>
+</head>
+<body>
+    <header class="header">
+        <img src="1.png" alt="Logo" class="logo">
+        <div>
+            <h1 data-translate="insightHub">Green Bite</h1>
+            <p data-translate="slogan">Every Bite Counts</p>
+        </div>
+        <div class="language-switcher">
+            <select id="language-select" onchange="changeLanguage(this.value)">
+                <option value="en">English</option>
+                <option value="bn">বাংলা</option>
+            </select>
+        </div>
+    </header>
+    <div class="container">
+        <h1 data-translate="insightHub">Insight Hub</h1>
+        <div class="insight-options">
+            <button data-translate="liveFeed">Live Feed</button>
+            <button data-translate="impactScore">Impact Score</button>
+            <button data-translate="foodSaved">Food Saved</button>
+        </div>
+    </div>
+    <footer class="footer" data-translate="footer">
+        &copy; 2025 Green Bite. All rights reserved.
+    </footer>
+</body>
+</html>

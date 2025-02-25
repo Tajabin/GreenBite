@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Bite - Sign Up</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .signup-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .signup-box {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .signup-box h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .signup-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .signup-btn:hover {
+            background-color: #45a049;
+        }
+
+        .signup-box p {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .signup-box p a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .signup-box p a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        function changeLanguage(lang) {
+            const translations = {
+                en: {
+                    title: "Green Bite - Sign Up",
+                    slogan: "Every Bite Counts",
+                    signUp: "Sign Up for Green Bite",
+                    fullName: "Full Name",
+                    email: "Email",
+                    password: "Password",
+                    alreadyHaveAccount: "Already have an account?",
+                    logIn: "Log In",
+                    footer: "&copy; 2025 Green Bite. All rights reserved."
+                },
+                bn: {
+                    title: "গ্রীন বাইট - নিবন্ধন করুন",
+                    slogan: "প্রত্যেকটি খাবার মূল্যবান",
+                    signUp: "গ্রীন বাইটের জন্য নিবন্ধন করুন",
+                    fullName: "পূর্ণ নাম",
+                    email: "ইমেইল",
+                    password: "পাসওয়ার্ড",
+                    alreadyHaveAccount: "ইতিমধ্যে একটি অ্যাকাউন্ট আছে?",
+                    logIn: "লগ ইন",
+                    footer: "&copy; ২০২৫ গ্রীন বাইট। সর্বস্বত্ব সংরক্ষিত।"
+                }
+            };
+
+            document.querySelector('title').innerText = translations[lang].title;
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                element.innerText = translations[lang][key];
+            });
+        }
+    </script>
+</head>
+<body>
+    <header class="header">
+        <img src="1.png" alt="Logo" class="logo">
+        <div>
+            <h1 data-translate="signUp">Green Bite</h1>
+            <p data-translate="slogan">Every Bite Counts</p>
+        </div>
+        <div class="language-switcher">
+            <select id="language-select" onchange="changeLanguage(this.value)">
+                <option value="en">English</option>
+                <option value="bn">বাংলা</option>
+            </select>
+        </div>
+    </header>
+    <div class="signup-container">
+        <div class="signup-box">
+            <h2 data-translate="signUp">Sign Up for Green Bite</h2>
+            <form action="#" method="POST">
+                <div class="input-group">
+                    <label for="name" data-translate="fullName">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                </div>
+                <div class="input-group">
+                    <label for="email" data-translate="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="input-group">
+                    <label for="password" data-translate="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Create a password" required>
+                </div>
+                <button type="submit" class="signup-btn" data-translate="signUp">Sign Up</button>
+            </form>
+            <p data-translate="alreadyHaveAccount">Already have an account? <a href="#" data-translate="logIn">Log In</a></p>
+        </div>
+    </div>
+    <footer class="footer" data-translate="footer">
+        &copy; 2025 Green Bite. All rights reserved.
+    </footer>
+</body>
+</html>

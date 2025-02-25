@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donations</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .content-section {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f4f4f4;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    <script>
+        function changeLanguage(lang) {
+            const translations = {
+                en: {
+                    title: "Donations",
+                    slogan: "Every Bite Counts",
+                    donations: "Donations",
+                    donateNow: "Donate Now",
+                    realTimeStats: "Real-Time Stats",
+                    myDonations: "My Donations",
+                    footer: "&copy; 2025 Green Bite. All rights reserved."
+                },
+                bn: {
+                    title: "দান",
+                    slogan: "প্রত্যেকটি খাবার মূল্যবান",
+                    donations: "দান",
+                    donateNow: "এখনই দান করুন",
+                    realTimeStats: "রিয়েল-টাইম স্ট্যাটাস",
+                    myDonations: "আমার দান",
+                    footer: "&copy; ২০২৫ গ্রীন বাইট। সর্বস্বত্ব সংরক্ষিত।"
+                }
+            };
+
+            document.querySelector('title').innerText = translations[lang].title;
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                element.innerText = translations[lang][key];
+            });
+        }
+    </script>
+</head>
+<body>
+    <header class="header">
+        <img src="1.png" alt="Logo" class="logo">
+        <div>
+            <h1 data-translate="donations">Green Bite</h1>
+            <p data-translate="slogan">Every Bite Counts</p>
+        </div>
+        <div class="language-switcher">
+            <select id="language-select" onchange="changeLanguage(this.value)">
+                <option value="en">English</option>
+                <option value="bn">বাংলা</option>
+            </select>
+        </div>
+    </header>
+    <div class="container">
+        <h1 data-translate="donations">Donations</h1>
+        <div class="donation-options">
+            <button data-translate="donateNow">Donate Now</button>
+            <button data-translate="realTimeStats">Real-Time Stats</button>
+            <button data-translate="myDonations">My Donations</button>
+        </div>
+    </div>
+    <footer class="footer" data-translate="footer">
+        &copy; 2025 Green Bite. All rights reserved.
+    </footer>
+</body>
+</html>

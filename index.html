@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Bite</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function navigateTo(page) {
+            window.location.href = page;
+        }
+
+        function changeLanguage(lang) {
+            const translations = {
+                en: {
+                    title: "Green Bite",
+                    slogan: "Every Bite Counts",
+                    tracking: "Tracking Inventory",
+                    trackingDesc: "Food Prediction Graph, Inventory Alerts, Expiration Prediction.",
+                    marketplace: "Food Marketplace",
+                    marketplaceDesc: "Categories, Food Listing, Discount Offers, Community.",
+                    donations: "Donations",
+                    donationsDesc: "Donate Now, Real-Time Stats, My Donations.",
+                    insight: "Insight Hub",
+                    insightDesc: "Live Feed, Impact Score, Food Saved.",
+                    signup: "Sign Up",
+                    footer: "&copy; 2025 Green Bite. All rights reserved.",
+                    contact: "Contact"
+                },
+                bn: {
+                    title: "গ্রীন বাইট",
+                    slogan: "প্রত্যেকটি খাবার মূল্যবান",
+                    tracking: "ইনভেন্টরি ট্র্যাকিং",
+                    trackingDesc: "খাবার পূর্বাভাস গ্রাফ, ইনভেন্টরি অ্যালার্ট, মেয়াদ উত্তীর্ণ পূর্বাভাস।",
+                    marketplace: "খাবারের বাজার",
+                    marketplaceDesc: "বিভাগ, খাবারের তালিকা, ছাড়ের অফার, কমিউনিটি।",
+                    donations: "দান",
+                    donationsDesc: "এখনই দান করুন, রিয়েল-টাইম স্ট্যাটাস, আমার দান।",
+                    insight: "ইনসাইট হাব",
+                    insightDesc: "লাইভ ফিড, ইমপ্যাক্ট স্কোর, সংরক্ষিত খাবার।",
+                    signup: "নিবন্ধন করুন",
+                    footer: "&copy; ২০২৫ গ্রীন বাইট। সর্বস্বত্ব সংরক্ষিত।",
+                    contact: "যোগাযোগ"
+                }
+            };
+
+            document.querySelector(".h1 h1").innerText = translations[lang].title;
+            document.querySelector(".h1 p").innerText = translations[lang].slogan;
+            document.getElementById("tracking-inventory").querySelector("h2").innerText = translations[lang].tracking;
+            document.getElementById("tracking-inventory").querySelector("p").innerText = translations[lang].trackingDesc;
+            document.getElementById("food-marketplace").querySelector("h2").innerText = translations[lang].marketplace;
+            document.getElementById("food-marketplace").querySelector("p").innerText = translations[lang].marketplaceDesc;
+            document.getElementById("donations").querySelector("h2").innerText = translations[lang].donations;
+            document.getElementById("donations").querySelector("p").innerText = translations[lang].donationsDesc;
+            document.getElementById("insight-hub").querySelector("h2").innerText = translations[lang].insight;
+            document.getElementById("insight-hub").querySelector("p").innerText = translations[lang].insightDesc;
+            document.querySelector(".signup-section h2").innerText = translations[lang].signup;
+            document.querySelector(".footer p").innerHTML = translations[lang].footer;
+            document.querySelector(".footer button").innerText = translations[lang].contact;
+        }
+    </script>
+</head>
+<body>
+    <header class="h1">
+        <img src="1.png" alt="Logo" class="logo">
+        <div>
+           <h1>Green Bite</h1>
+            <p>Every Bite Counts</p>
+        </div>
+        
+        <div class="language-switcher">
+           
+            <select id="language-select" onchange="changeLanguage(this.value)">
+                <option value="en">English</option>
+                <option value="bn">বাংলা</option>
+            </select>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="section" id="tracking-inventory" onclick="navigateTo('tracking-inventory.html')">
+            <h2>Tracking Inventory</h2>
+            <p>Food Prediction Graph, Inventory Alerts, Expiration Prediction.</p>
+        </div>
+        <div class="section" id="food-marketplace" onclick="navigateTo('food-marketplace.html')">
+            <h2>Food Marketplace</h2>
+            <p>Categories, Food Listing, Discount Offers, Community.</p>
+        </div>
+        <div class="section" id="donations" onclick="navigateTo('donations.html')">
+            <h2>Donations</h2>
+            <p>Donate Now, Real-Time Stats, My Donations.</p>
+        </div>
+        <div class="section" id="insight-hub" onclick="navigateTo('insight-hub.html')">
+            <h2>Insight Hub</h2>
+            <p>Live Feed, Impact Score, Food Saved.</p>
+        </div>
+        <div class="signup-section" onclick="navigateTo('signup.html')">
+            <h2>Sign Up</h2>
+        </div>
+    </div>
+    
+    <video autoplay loop muted playsinline id="bg-video">
+        <source src="c.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
+    <footer class="footer">
+        <p>&copy; 2025 Green Bite. All rights reserved.</p>
+        <button onclick="navigateTo('contact.html')" data-translate="contact">Contact us </button>
+    </footer>
+</body>
+</html>

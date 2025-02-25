@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="title">Food Marketplace</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .content-section {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f4f4f4;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .title-navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .title-navigation button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+        .title-navigation button:hover {
+            background-color: #388E3C;
+        }
+    </style>
+    <script>
+        const titles = ["Agora Food", "Meena Bazar", "Shawpno"];
+        let currentIndex = 0;
+
+        function showTitle(index) {
+            const titleElement = document.querySelector('.dynamic-title');
+            titleElement.innerText = titles[index];
+        }
+
+        function previousTitle() {
+            currentIndex = (currentIndex - 1 + titles.length) % titles.length;
+            showTitle(currentIndex);
+        }
+
+        function nextTitle() {
+            currentIndex = (currentIndex + 1) % titles.length;
+            showTitle(currentIndex);
+        }
+
+        function changeLanguage(lang) {
+            const translations = {
+                en: {
+                    title: "Food Marketplace",
+                    slogan: "Every Bite Counts",
+                    foodMarketplace: "Food Marketplace",
+                    categories: "Categories",
+                    foodListing: "Food Listing",
+                    discountOffers: "Discount Offers",
+                    community: "Community",
+                    footer: "&copy; 2025 Green Bite. All rights reserved."
+                },
+                bn: {
+                    title: "খাবারের বাজার",
+                    slogan: "প্রত্যেকটি খাবার মূল্যবান",
+                    foodMarketplace: "খাবারের বাজার",
+                    categories: "বিভাগ",
+                    foodListing: "খাবারের তালিকা",
+                    discountOffers: "ছাড়ের অফার",
+                    community: "কমিউনিটি",
+                    footer: "&copy; ২০২৫ গ্রীন বাইট। সর্বস্বত্ব সংরক্ষিত।"
+                }
+            };
+
+            document.querySelector('title').innerText = translations[lang].title;
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                element.innerText = translations[lang][key];
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            showTitle(currentIndex);
+        });
+    </script>
+</head>
+<body>
+    <header class="header">
+        <img src="1.png" alt="Logo" class="logo">
+        <div>
+            <h1 data-translate="foodMarketplace">Food Marketplace</h1>
+            <p data-translate="slogan">Every Bite Counts</p>
+        </div>
+        <div class="language-switcher">
+            <select id="language-select" onchange="changeLanguage(this.value)">
+                <option value="en">English</option>
+                <option value="bn">বাংলা</option>
+            </select>
+        </div>
+    </header>
+    <div class="container">
+        <div class="title-navigation">
+            <button onclick="previousTitle()">&#8592;</button>
+            <h1 class="dynamic-title">Agora Food</h1>
+            <button onclick="nextTitle()">&#8594;</button>
+        </div>
+        <div class="market-options">
+            <button data-translate="categories">Categories</button>
+            <button data-translate="foodListing">Food Listing</button>
+            <button data-translate="discountOffers">Discount Offers</button>
+            <button data-translate="community">Community</button>
+        </div>
+    </div>
+    <footer class="footer" data-translate="footer">
+        &copy; 2025 Green Bite. All rights reserved.
+    </footer>
+</body>
+</html>
